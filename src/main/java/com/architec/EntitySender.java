@@ -24,6 +24,10 @@ public class EntitySender {
 
         u2.addQuestion(q1);
 
+        q1.addUser(u1);
+        q2.addUser(u1);
+        q1.addUser(u2);
+
         em.persist(u1);
         em.persist(u2);
 

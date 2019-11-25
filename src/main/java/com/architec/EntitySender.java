@@ -13,23 +13,20 @@ public class EntitySender {
 
         transaction.begin();
 
-        User u1 = new User("Sam", "123");
-        User u2 = new User("Ray", "321");
+        User u1 = new User("Sam", "123", true);
 
-        Question q1 = new Question("Tile-1","Some text");
-        Question q2 = new Question("Tile-2", "some additional text");
+        Questionnaire questionnaire1 = new Questionnaire(u1);
 
-        u1.addQuestion(q1);
-        u1.addQuestion(q2);
+        Question question1 = new Question("Tile-1","Some text", 1);
 
-        u2.addQuestion(q1);
+        u1.addQuestionnaire(questionnaire1);
 
-        q1.addUser(u1);
-        q2.addUser(u1);
-        q1.addUser(u2);
+        questionnaire1.addQuestionToQuestionnaire(question1);
+
+        u1.addQuestion(question1);
 
         em.persist(u1);
-        em.persist(u2);
+
 
         transaction.commit();
 

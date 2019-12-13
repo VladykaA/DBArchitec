@@ -13,7 +13,7 @@ public class EntitySender {
 
         transaction.begin();
 
-        User u1 = new User("Sam", "123", true);
+    /*    User u1 = new User("Sam", "123", true);
 
         Questionnaire questionnaire1 = new Questionnaire(u1);
 
@@ -27,8 +27,7 @@ public class EntitySender {
 
         em.persist(u1);
 
-
-        transaction.commit();
+        transaction.commit();*/
 
         em.close();
         factory.close();

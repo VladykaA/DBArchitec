@@ -7,7 +7,7 @@ public abstract class DAOFactory {
 
     public abstract UserDAO getUserDAO();
 
-    public DAOFactory getDAOFactory() {
+    public static DAOFactory getDAOFactory() {
 
         return new MySQLDAOFactory();
     }

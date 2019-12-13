@@ -17,7 +17,7 @@ public class User {
 
     private boolean isAuthor;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user", orphanRemoval = true)
     private List<Questionnaire> questionnaires = new ArrayList<>();;
 
     @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "users")

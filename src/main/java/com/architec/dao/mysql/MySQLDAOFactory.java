@@ -6,6 +6,6 @@ import com.architec.dao.UserDAO;
 public class MySQLDAOFactory extends DAOFactory {
     @Override
     public UserDAO getUserDAO() {
-        return null;
+        return new MySQLUserDAO();
     }
 }

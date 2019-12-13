@@ -1,16 +1,15 @@
 package com.architec;
 
+import com.architec.EntityManager.EntityManagerUtil;
+
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 public class EntitySender {
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("shade_db_architecture");
-        EntityManager em = factory.createEntityManager();
-        EntityTransaction transaction = em.getTransaction();
 
+        EntityManager em = EntityManagerUtil.getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         transaction.begin();
 
     /*    User u1 = new User("Sam", "123", true);
@@ -30,7 +29,6 @@ public class EntitySender {
         transaction.commit();*/
 
         em.close();
-        factory.close();
 
     }
 }

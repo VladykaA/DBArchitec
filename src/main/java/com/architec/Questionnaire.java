@@ -16,7 +16,7 @@ public class Questionnaire {
     @JoinColumn(name = "user_fk-id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "questionnaire")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "questionnaire", orphanRemoval = true)
     private List<Question> questions = new ArrayList<>();
 
     private LocalDateTime deadLine;

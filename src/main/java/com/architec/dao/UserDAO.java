@@ -2,9 +2,12 @@ package com.architec.dao;
 
 import com.architec.User;
 
+import java.util.List;
+
 public interface UserDAO {
     void saveUser(User user);
-    void getUser(User user);
+    User getUserById(int id);
+    List<User> getAll();
     void updateUser(User user);
     void deleteUser(User user);
 

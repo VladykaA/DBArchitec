@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "question")
 public class Question {
 
     @Id
@@ -22,19 +23,18 @@ public class Question {
     @JoinColumn(name = "question_fk_id")
     private Questionnaire questionnaire;
 
-   /* @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_question",
             joinColumns = @JoinColumn(name = "question_fk_id"),
             inverseJoinColumns = @JoinColumn(name = "user_fk_id"))
     private List<User> users = new ArrayList<>();
-*/
+
     @ElementCollection
-    private List<String> answers = new ArrayList<>();;
+    private List<String> answers = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "ways_to_files")
-    private List<String> waysToFiles = new ArrayList<>();;
-
+    private List<String> waysToFiles = new ArrayList<>();
 
     public Question(String title, String filed, int numbers) {
         this.title = title;
@@ -45,9 +45,6 @@ public class Question {
     public Question() {
     }
 
-//    public void addUser(User user) {
-//        users.add(user);
-//    }
 
     public Questionnaire getQuestionnaire() {
         return questionnaire;

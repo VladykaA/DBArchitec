@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "user_table")
 public class User {
 
     @Id
@@ -17,11 +18,11 @@ public class User {
 
     private boolean isAuthor;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user", orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Questionnaire> questionnaires = new ArrayList<>();;
 
-//    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "users")
-//    private List<Question> questions = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "users")
+    private List<Question> questions = new ArrayList<>();
 
     public User(String name, String password, boolean isAuthor) {
         this.name = name;
@@ -32,9 +33,9 @@ public class User {
     public User() {
     }
 
-//    //public void addQuestion(Question question){
-//        questions.add(question);
-//    }
+    public void addQuestion(Question question){
+        questions.add(question);
+    }
 
     public void addQuestionnaire(Questionnaire questionnaire){
         questionnaires.add(questionnaire);

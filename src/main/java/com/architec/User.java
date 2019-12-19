@@ -20,8 +20,8 @@ public class User {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user", orphanRemoval = true)
     private List<Questionnaire> questionnaires = new ArrayList<>();;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "users")
-    private List<Question> questions = new ArrayList<>();
+//    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "users")
+//    private List<Question> questions = new ArrayList<>();
 
     public User(String name, String password, boolean isAuthor) {
         this.name = name;
@@ -32,9 +32,9 @@ public class User {
     public User() {
     }
 
-    public void addQuestion(Question question){
-        questions.add(question);
-    }
+//    //public void addQuestion(Question question){
+//        questions.add(question);
+//    }
 
     public void addQuestionnaire(Questionnaire questionnaire){
         questionnaires.add(questionnaire);
@@ -79,12 +79,12 @@ public class User {
     public void setQuestionnaires(List<Questionnaire> questionnaires) {
         this.questionnaires = questionnaires;
     }
-
+/*
     public List<Question> getQuestions() {
         return questions;
     }
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
-    }
+    }*/
 }

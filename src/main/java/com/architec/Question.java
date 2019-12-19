@@ -22,16 +22,17 @@ public class Question {
     @JoinColumn(name = "question_fk_id")
     private Questionnaire questionnaire;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+   /* @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_question",
             joinColumns = @JoinColumn(name = "question_fk_id"),
             inverseJoinColumns = @JoinColumn(name = "user_fk_id"))
     private List<User> users = new ArrayList<>();
+*/
+    @ElementCollection
+    private List<String> answers = new ArrayList<>();;
 
     @ElementCollection
-    private List<String> answer = new ArrayList<>();;
-
-    @ElementCollection
+    @CollectionTable(name = "ways_to_files")
     private List<String> waysToFiles = new ArrayList<>();;
 
 
@@ -44,9 +45,18 @@ public class Question {
     public Question() {
     }
 
-    public void addUser(User user) {
-        users.add(user);
+//    public void addUser(User user) {
+//        users.add(user);
+//    }
+
+    public Questionnaire getQuestionnaire() {
+        return questionnaire;
     }
+
+    public void setQuestionnaire(Questionnaire questionnaire) {
+        this.questionnaire = questionnaire;
+    }
+
 
     public int getId() {
         return id;
@@ -72,20 +82,20 @@ public class Question {
         this.filed = filed;
     }
 
-    public List<User> getUsers() {
+ /*   public List<User> getUsers() {
         return users;
     }
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }*/
+
+    public List<String> getAnswers() {
+        return answers;
     }
 
-    public List<String> getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(List<String> answer) {
-        this.answer = answer;
+    public void setAnswers(List<String> answers) {
+        this.answers = answers;
     }
 
     public int getNumbers() {

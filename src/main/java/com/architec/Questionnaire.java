@@ -9,18 +9,17 @@ import java.time.*;
 public class Questionnaire {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_fk-id")
+    @JoinColumn(name = "user_fk_id")
     private User user;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "questionnaire", orphanRemoval = true)
     private List<Question> questions = new ArrayList<>();
 
     private LocalDateTime deadLine;
-
 
     public Questionnaire(User user) {
         this.user = user;

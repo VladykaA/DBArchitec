@@ -10,7 +10,7 @@
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/shade_db?serverTimezone=UTC"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/shade_db?serverTimezone=UTC&amp;useLegacyDatetimeCode=false"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="Qwerty11"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>

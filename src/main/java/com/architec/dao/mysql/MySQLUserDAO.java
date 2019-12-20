@@ -15,23 +15,26 @@ public class MySQLUserDAO implements UserDAO {
 
     @Override
     public void saveUser(User user) {
-        transaction.begin();
+        if (!em.getTransaction().isActive()) {
+            transaction.begin();
+        }
         em.persist(user);
         transaction.commit();
         em.close();
     }
 
     @Override
-    public User getUserById(int id){
+    public User getUserById(int id) {
         User user = em.find(User.class, id);
         return user;
     }
 
     @Override
     public List<User> getAll() {
+        String sql = "select u from user u";
+        List<User> users = em.createQuery(sql, User.class).getResultList();
 
-
-        return null;
+        return users;
     }
 
     @Override

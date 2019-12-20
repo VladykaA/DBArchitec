@@ -12,10 +12,8 @@ public class EntitySender {
         Question question1 = new Question("Tile-1","Some text", 1);
         user1.addQuestionnaire(questionnaire1);
         questionnaire1.addQuestionToQuestionnaire(question1);
-        user1.addQuestion(question1);
 
         userDAO.saveUser(user1);
-
 
     }
 }

@@ -2,6 +2,7 @@ package com.architec;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.time.*;
 
@@ -11,19 +12,21 @@ public class Questionnaire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "questionnarie_id")
     private int id;
 
     @ManyToOne
     @JoinColumn(name = "user_fk_id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "questionnaire", orphanRemoval = true)
-    private List<Question> questions = new ArrayList<>();
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "questionnaire", orphanRemoval = true)
+    private List<Question> questions = new LinkedList<>();
 
     private LocalDateTime deadLine;
 
-    public Questionnaire(User user) {
+    public Questionnaire(User user, LocalDateTime deadLine) {
         this.user = user;
+        this.deadLine = deadLine;
     }
 
     public Questionnaire() {

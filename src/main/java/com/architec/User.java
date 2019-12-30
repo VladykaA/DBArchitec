@@ -2,14 +2,15 @@ package com.architec;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "user_table")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int id;
 
     private String name;
@@ -18,11 +19,11 @@ public class User {
 
     private boolean isAuthor;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<Questionnaire> questionnaires = new ArrayList<>();;
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "user")
+    private List<Questionnaire> questionnaires = new LinkedList<>();
 
-    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "users")
-    private List<Question> questions = new ArrayList<>();
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "users")
+    private List<Question> questions = new LinkedList<>();
 
     public User(String name, String password, boolean isAuthor) {
         this.name = name;

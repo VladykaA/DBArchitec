@@ -1,4 +1,4 @@
-package com.architec.EntityManager;
+package com.architec.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

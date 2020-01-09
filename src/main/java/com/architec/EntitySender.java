@@ -9,7 +9,7 @@ public class EntitySender {
 
         MySQLUserDAO userDAO = new MySQLUserDAO();
 
-        User user1 = new User("Sam", "123", true);
+        /*User user1 = new User("Sam", "123", true);
 
         Questionnaire questionnaire1 = new Questionnaire(user1, LocalDateTime.now());
         user1.addQuestionnaire(questionnaire1);
@@ -31,22 +31,23 @@ public class EntitySender {
         question1.addAnswer("Answer 1");
         question2.addAnswer("Answer 2");
 
-        question1.addWay("some string to file");
+        question1.addWay("some string to file");*/
 
+        //userDAO.saveUser(user1);
 
-//        userDAO.saveUser(user1);
+        User user = userDAO.getUserById(1);
 
-        User user = userDAO.getUserById(4);
+        userDAO.deleteUser(user);
 
-        user.setName("John");
+        /*user.setName("Tom");
 
-        user.setPassword("123456");
+        user.setPassword("111111");
 
         user.getQuestionnaires()
                 .get(0)
-                .setDeadLine(LocalDateTime.of(2020, 01, 01, 0, 0));
+                .setDeadLine(LocalDateTime.of(2020, 01, 01, 3, 5));
 
-        userDAO.updateUser(user);
+        userDAO.updateUser(user);*/
 
     }
 }

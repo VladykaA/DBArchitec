@@ -1,7 +1,6 @@
 package com.architec;
 
 import javax.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,13 +89,13 @@ public class Question {
         this.textFilled = textFilled;
     }
 
-    /*   public List<User> getUsers() {
+       public List<User> getUsers() {
         return users;
     }
 
     public void setUsers(List<User> users) {
         this.users = users;
-    }*/
+    }
 
     public List<String> getAnswers() {
         return answers;

@@ -1,7 +1,6 @@
 package com.architec;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,10 +18,10 @@ public class User {
 
     private boolean isAuthor;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "user")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "user")
     private List<Questionnaire> questionnaires = new LinkedList<>();
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "users")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "users")
     private List<Question> questions = new LinkedList<>();
 
     public User(String name, String password, boolean isAuthor) {
@@ -81,12 +80,11 @@ public class User {
     public void setQuestionnaires(List<Questionnaire> questionnaires) {
         this.questionnaires = questionnaires;
     }
-/*
     public List<Question> getQuestions() {
         return questions;
     }
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
-    }*/
+    }
 }

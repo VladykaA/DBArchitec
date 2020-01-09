@@ -77,6 +77,14 @@ public class MySQLUserDAO implements UserDAO {
     @Override
     public void deleteUser(User user) {
 
-    }
+        EntityManager em = EntityManagerUtil.getEntityManager();
 
+        EntityTransaction transaction = em.getTransaction();
+
+        if (user != null) {
+            transaction.begin();
+            em.remove(user);
+            transaction.commit();
+        }
+    }
 }

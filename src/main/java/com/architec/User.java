@@ -4,6 +4,15 @@ import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * <h1>The user class</h1>
+ * Simply the instance of the user object who is the main holder of the relations with other objects on the back side.
+ * The user is able to create multiple questions and questionnaires.
+ * <p>
+ * @author oleksandr.vladyka
+ * @version 1.0
+ */
+
 @Entity
 public class User {
 
@@ -12,10 +21,16 @@ public class User {
     @Column(name = "user_id")
     private int id;
 
+    /**
+     * The last and first name of the user.
+     */
     private String name;
 
     private String password;
 
+    /**
+     * The flag to mark the user to give him the right to update and delete the questions.
+     */
     private boolean isAuthor;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "user")
@@ -33,9 +48,18 @@ public class User {
     public User() {
     }
 
+    /**
+     * The method to add a question to the linked list questions. It returns nothing.
+     * @param question the only one param.
+     */
     public void addQuestion(Question question){
         questions.add(question);
     }
+
+    /**
+     * The method to add a questionnaire to the linked list questionnaires and returns nothing.
+     * @param questionnaire the only one param.
+     */
 
     public void addQuestionnaire(Questionnaire questionnaire){
         questionnaires.add(questionnaire);

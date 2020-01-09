@@ -1,5 +1,7 @@
 package com.architec.dao.mysql;
 
+import com.architec.Question;
+import com.architec.dao.QuestionsManipulationDAO;
 import com.architec.util.EntityManagerUtil;
 import com.architec.User;
 import com.architec.dao.UserDAO;
@@ -11,7 +13,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class MySQLUserDAO implements UserDAO {
+public class MySQLUserDAO implements UserDAO, QuestionsManipulationDAO {
 
     @Override
     public void saveUser(User user) {
@@ -84,6 +86,53 @@ public class MySQLUserDAO implements UserDAO {
         if (user != null) {
             transaction.begin();
             em.remove(user);
+            transaction.commit();
+        }
+    }
+
+    @Override
+    public Question getQuestionById(int id) {
+        EntityManager em = EntityManagerUtil.getEntityManager();
+
+        EntityTransaction transaction = em.getTransaction();
+
+        transaction.begin();
+
+        Question question = em.find(Question.class, id);
+
+        transaction.commit();
+
+        return question;
+    }
+
+    @Override
+    public void updateQuestion(User user, Question question) {
+        if (user.isAuthor()) {
+            EntityManager em = EntityManagerUtil.getEntityManager();
+
+            EntityTransaction transaction = em.getTransaction();
+
+            transaction.begin();
+
+            Question mergedQuestion = em.merge(question);
+
+            em.persist(mergedQuestion);
+
+            transaction.commit();
+        }
+    }
+
+    @Override
+    public void deleteQuestion(User user, Question question) {
+        if (user.isAuthor()) {
+            EntityManager em = EntityManagerUtil.getEntityManager();
+
+            EntityTransaction transaction = em.getTransaction();
+
+            transaction.begin();
+
+            em.remove(question);
+
             transaction.commit();
         }
     }

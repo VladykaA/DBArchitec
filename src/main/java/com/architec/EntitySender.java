@@ -9,13 +9,13 @@ public class EntitySender {
 
         MySQLUserDAO userDAO = new MySQLUserDAO();
 
-        /*User user1 = new User("Sam", "123", true);
+        /*User user1 = new User("Tom", "12345", true);
 
         Questionnaire questionnaire1 = new Questionnaire(user1, LocalDateTime.now());
         user1.addQuestionnaire(questionnaire1);
 
-        Question question1 = new Question("Tile-1","Some text", 1);
-        Question question2 = new Question("Tile-2","Some text", 2);
+        Question question1 = new Question("Tile-11","Some text2", 1);
+        Question question2 = new Question("Tile-21","Some text2", 2);
 
         questionnaire1.addQuestionToQuestionnaire(question1);
         questionnaire1.addQuestionToQuestionnaire(question2);
@@ -28,18 +28,21 @@ public class EntitySender {
         question1.addUser(user1);
         question2.addUser(user1);
 
-        question1.addAnswer("Answer 1");
-        question2.addAnswer("Answer 2");
+        question1.addAnswer("Answer 11");
+        question2.addAnswer("Answer 22");
 
-        question1.addWay("some string to file");*/
+        question1.addWay("some string to file1");*/
 
         //userDAO.saveUser(user1);
 
+
         User user = userDAO.getUserById(1);
 
-        userDAO.deleteUser(user);
+        Question question = userDAO.getQuestionById(1);
 
-        /*user.setName("Tom");
+        /*userDAO.deleteUser(user);
+
+        user.setName("Tom");
 
         user.setPassword("111111");
 
@@ -48,6 +51,8 @@ public class EntitySender {
                 .setDeadLine(LocalDateTime.of(2020, 01, 01, 3, 5));
 
         userDAO.updateUser(user);*/
+
+        userDAO.deleteQuestion(user, question);
 
     }
 }

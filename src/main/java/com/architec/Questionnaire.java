@@ -5,6 +5,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.time.*;
 
+/**
+ * <h1>This class is the instance for a questionnaire</h1>
+ * The questionnaire is a container for questions. Basically it is an entity
+ * to connect questions by its topic.
+ *
+ * @author oleksandr.vladyka
+ * @version 1.0
+ */
+
 @Entity
 @Table(name = "questionnaire")
 public class Questionnaire {
@@ -14,10 +23,17 @@ public class Questionnaire {
     @Column(name = "questionnarie_id")
     private int id;
 
+    /**
+     *This field for connection with the user object.
+     */
     @ManyToOne
     @JoinColumn(name = "user_fk_id")
     private User user;
 
+    /**
+     *The field for connection of the questionnaire with questions. One questionnaire can contain many questions.
+     * @see Question
+     */
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "questionnaire", orphanRemoval = true)
     private List<Question> questions = new LinkedList<>();
 
@@ -31,7 +47,11 @@ public class Questionnaire {
     public Questionnaire() {
     }
 
-    public void addQuestionToQuestionnaire(Question question){
+    /**
+     * The method to add a question to the questionnaire collection.
+     * @param question
+     */
+    public void addQuestionToQuestionnaire(Question question) {
         questions.add(question);
     }
 

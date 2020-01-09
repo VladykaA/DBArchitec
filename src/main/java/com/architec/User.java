@@ -33,9 +33,20 @@ public class User {
      */
     private boolean isAuthor;
 
+    /**
+     * The field to store the questionnaires regarding to the user. In fact, the user has to create a questionnaire
+     * prior to question. One user can create many questionnaires but the questionnaire belongs to one user only. This
+     * relation is bidirectional.
+     * @see Questionnaire
+     */
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "user")
     private List<Questionnaire> questionnaires = new LinkedList<>();
 
+    /**
+     * The field to store the questions regarding to the user. Questions relate to users in bidirectional way,
+     * many questions relate to many users and vice versa.
+     * @see Question
+     */
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "users")
     private List<Question> questions = new LinkedList<>();
 

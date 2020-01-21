@@ -1,4 +1,4 @@
-package com.architec;
+package com.architec.domain;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -37,6 +37,7 @@ public class Question {
      * The field to store questions in questionnaire.
      * @see Questionnaire
      */
+    //TODO rename the field to questionnaire
     @ManyToOne
     @JoinColumn(name = "question_fk_id")
     private Questionnaire questionnaire;
@@ -45,7 +46,7 @@ public class Question {
      * The field of the relation with the user.
      * @see User
      */
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinTable(name = "user_question",
             joinColumns = @JoinColumn(name = "question_fk_id"),
             inverseJoinColumns = @JoinColumn(name = "user_fk_id"))

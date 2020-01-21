@@ -1,21 +1,21 @@
 package com.architec;
 
 import com.architec.dao.mysql.MySQLUserDAO;
-
-import java.time.LocalDateTime;
+import com.architec.domain.Question;
+import com.architec.domain.User;
 
 public class EntitySender {
     public static void main(String[] args) {
 
         MySQLUserDAO userDAO = new MySQLUserDAO();
 
-        /*User user1 = new User("Tom", "12345", true);
+        /*User user1 = new User("Ray", "1234ddfdf5", true);
 
         Questionnaire questionnaire1 = new Questionnaire(user1, LocalDateTime.now());
         user1.addQuestionnaire(questionnaire1);
 
-        Question question1 = new Question("Tile-11","Some text2", 1);
-        Question question2 = new Question("Tile-21","Some text2", 2);
+        Question question1 = new Question("Tile-111","Some text3", 1);
+        Question question2 = new Question("Tile-212","Some text3", 2);
 
         questionnaire1.addQuestionToQuestionnaire(question1);
         questionnaire1.addQuestionToQuestionnaire(question2);
@@ -28,21 +28,20 @@ public class EntitySender {
         question1.addUser(user1);
         question2.addUser(user1);
 
-        question1.addAnswer("Answer 11");
-        question2.addAnswer("Answer 22");
+        question1.addAnswer("Answer 111");
+        question2.addAnswer("Answer 222");
 
-        question1.addWay("some string to file1");*/
+        question1.addWay("some string to file1");
 
-        //userDAO.saveUser(user1);
+        userDAO.saveUser(user1);*/
 
+        User user = userDAO.getUserById(2);
 
-        User user = userDAO.getUserById(1);
+        Question question = userDAO.getQuestionById(3);
 
-        Question question = userDAO.getQuestionById(1);
+        //userDAO.deleteUser(user);
 
-        /*userDAO.deleteUser(user);
-
-        user.setName("Tom");
+        /*user.setName("Tom");
 
         user.setPassword("111111");
 

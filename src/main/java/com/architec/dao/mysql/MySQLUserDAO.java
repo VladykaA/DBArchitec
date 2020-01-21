@@ -1,10 +1,11 @@
 package com.architec.dao.mysql;
 
-import com.architec.Question;
+import com.architec.domain.Question;
 import com.architec.dao.QuestionsManipulationDAO;
 import com.architec.util.EntityManagerUtil;
-import com.architec.User;
+import com.architec.domain.User;
 import com.architec.dao.UserDAO;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -13,6 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+@Repository
 public class MySQLUserDAO implements UserDAO, QuestionsManipulationDAO {
 
     @Override

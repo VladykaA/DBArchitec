@@ -1,6 +1,6 @@
 package com.architec.dao;
 
-import com.architec.User;
+import com.architec.domain.User;
 
 import java.util.List;
 

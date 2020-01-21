@@ -1,4 +1,4 @@
-package com.architec;
+package com.architec.domain;
 
 import javax.persistence.*;
 import java.util.LinkedList;

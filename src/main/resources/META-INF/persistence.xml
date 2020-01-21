@@ -5,9 +5,9 @@
              version="2.0">
     <persistence-unit name="shade_db_architecture">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.architec.User</class>
-        <class>com.architec.Questionnaire</class>
-        <class>com.architec.Question</class>
+        <class>com.architec.domain.User</class>
+        <class>com.architec.domain.Questionnaire</class>
+        <class>com.architec.domain.Question</class>
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>

@@ -2,8 +2,11 @@ package com.architec.dao.interfaces;
 
 import com.architec.domain.Question;
 import com.architec.domain.User;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
+@Repository
 public interface CRUDQuestionsDAO {
 
     void saveQuestion(Question question);

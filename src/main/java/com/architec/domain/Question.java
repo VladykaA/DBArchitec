@@ -37,9 +37,9 @@ public class Question {
      * The field to store questions in questionnaire.
      * @see Questionnaire
      */
-    //TODO rename the field to questionnaire
+
     @ManyToOne
-    @JoinColumn(name = "question_fk_id")
+    @JoinColumn(name = "questionnaire_fk_id")
     private Questionnaire questionnaire;
 
     /**

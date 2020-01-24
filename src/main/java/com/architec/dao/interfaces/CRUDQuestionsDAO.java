@@ -1,11 +1,18 @@
-package com.architec.dao;
+package com.architec.dao.interfaces;
 
 import com.architec.domain.Question;
 import com.architec.domain.User;
-//TODO rename the interface name
-public interface QuestionsManipulationDAO {
+import java.util.List;
+
+public interface CRUDQuestionsDAO {
+
+    void saveQuestion(Question question);
 
     Question getQuestionById(int id);
+
+    List<Question> getAll();
+
+    Question getQuestionByKey(String key);
 
     void updateQuestion(User user, Question question);
 

@@ -1,10 +1,10 @@
-package com.architec.dao;
+package com.architec.dao.interfaces;
 
 import com.architec.domain.User;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface CRUDUserDAO {
     void saveUser(User user);
     User getUserById(int id);
     List<User> getAll();

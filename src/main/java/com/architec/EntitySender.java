@@ -1,21 +1,27 @@
 package com.architec;
 
-import com.architec.dao.mysql.MySQLUserDAO;
+import com.architec.dao.mysql.MySQLCRUDUserDAO;
 import com.architec.domain.Question;
+import com.architec.domain.Questionnaire;
 import com.architec.domain.User;
+import com.architec.service.impl.UserServiceImpl;
+
+import java.time.LocalDateTime;
 
 public class EntitySender {
     public static void main(String[] args) {
 
-        MySQLUserDAO userDAO = new MySQLUserDAO();
+//        MySQLCRUDUserDAO userDAO = new MySQLCRUDUserDAO();
 
-        /*User user1 = new User("Ray", "1234ddfdf5", true);
+        UserServiceImpl userService = new UserServiceImpl();
+
+        User user1 = new User("Mark", "2rrrrrrr", true);
 
         Questionnaire questionnaire1 = new Questionnaire(user1, LocalDateTime.now());
         user1.addQuestionnaire(questionnaire1);
 
-        Question question1 = new Question("Tile-111","Some text3", 1);
-        Question question2 = new Question("Tile-212","Some text3", 2);
+        Question question1 = new Question("Tile-21mark","Some text21mark", 1);
+        Question question2 = new Question("Tile-22mark","Some text22mark", 2);
 
         questionnaire1.addQuestionToQuestionnaire(question1);
         questionnaire1.addQuestionToQuestionnaire(question2);
@@ -28,16 +34,12 @@ public class EntitySender {
         question1.addUser(user1);
         question2.addUser(user1);
 
-        question1.addAnswer("Answer 111");
-        question2.addAnswer("Answer 222");
+        question1.addAnswer("Answer 21mark");
+        question2.addAnswer("Answer 21mark");
 
-        question1.addWay("some string to file1");
+        question1.addWay("some string to file1 mark");
 
-        userDAO.saveUser(user1);*/
-
-        User user = userDAO.getUserById(2);
-
-        Question question = userDAO.getQuestionById(3);
+        userService.save(user1);
 
         //userDAO.deleteUser(user);
 
@@ -51,7 +53,6 @@ public class EntitySender {
 
         userDAO.updateUser(user);*/
 
-        userDAO.deleteQuestion(user, question);
 
     }
 }

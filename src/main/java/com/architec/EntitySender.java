@@ -5,6 +5,9 @@ import com.architec.domain.Question;
 import com.architec.domain.Questionnaire;
 import com.architec.domain.User;
 import com.architec.service.impl.UserServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +16,9 @@ public class EntitySender {
 
 //        MySQLCRUDUserDAO userDAO = new MySQLCRUDUserDAO();
 
-        UserServiceImpl userService = new UserServiceImpl();
+        ApplicationContext context = new AnnotationConfigApplicationContext(UserServiceImpl.class);
+
+        UserServiceImpl userService = null;
 
         User user1 = new User("Mark", "2rrrrrrr", true);
 
@@ -39,7 +44,7 @@ public class EntitySender {
 
         question1.addWay("some string to file1 mark");
 
-        userService.save(user1);
+        //userService.save(user1);
 
         //userDAO.deleteUser(user);
 

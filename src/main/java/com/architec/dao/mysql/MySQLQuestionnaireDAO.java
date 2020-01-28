@@ -4,6 +4,7 @@ import com.architec.dao.interfaces.CRUDQuestionnaireDAO;
 import com.architec.domain.Questionnaire;
 import com.architec.domain.User;
 import com.architec.util.EntityManagerUtil;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -11,7 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
-
+@Repository
 public class MySQLQuestionnaireDAO implements CRUDQuestionnaireDAO {
 
     @Override

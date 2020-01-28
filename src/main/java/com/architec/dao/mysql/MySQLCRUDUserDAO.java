@@ -4,28 +4,34 @@ import com.architec.dao.interfaces.CRUDUserDAO;
 import com.architec.util.EntityManagerUtil;
 import com.architec.domain.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class MySQLCRUDUserDAO implements CRUDUserDAO{
+@Transactional
+public class MySQLCRUDUserDAO implements CRUDUserDAO {
+
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public void saveUser(User user) {
-        EntityManager em = EntityManagerUtil.getEntityManager();
+//        EntityManager em = EntityManagerUtil.getEntityManager();
 
-        EntityTransaction transaction = em.getTransaction();
+        /*EntityTransaction transaction = em.getTransaction();
 
-        transaction.begin();
+        transaction.begin();*/
 
         em.persist(user);
 
-        transaction.commit();
+//        transaction.commit();
     }
 
     @Override

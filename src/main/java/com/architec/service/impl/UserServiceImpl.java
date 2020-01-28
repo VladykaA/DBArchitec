@@ -2,7 +2,7 @@ package com.architec.service.impl;
 
 import com.architec.dao.interfaces.CRUDUserDAO;
 import com.architec.domain.User;
-import com.architec.service.UService;
+import com.architec.service.CRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UService<User> {
+public class UserServiceImpl implements CRUDService<User> {
 
     @Autowired
-    @Qualifier("mySQLUserDAO")
+    @Qualifier("mySQLCRUDUserDAO")
     private CRUDUserDAO userDAO;
 
     @Override

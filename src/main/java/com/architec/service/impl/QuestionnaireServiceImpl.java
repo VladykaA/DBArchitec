@@ -6,9 +6,11 @@ import com.architec.domain.User;
 import com.architec.service.QService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class QuestionnaireServiceImpl implements QService<User, Questionnaire> {
 
     @Autowired
@@ -36,12 +38,14 @@ public class QuestionnaireServiceImpl implements QService<User, Questionnaire> {
     }
 
     @Override
-    public void update(User user, Questionnaire questionnaire) {
-        questionnaireDAO.updateQuestionnaire(user, questionnaire);
+    public void update(Questionnaire questionnaire) {
+
     }
 
     @Override
-    public void delete(User user, Questionnaire questionnaire) {
-        questionnaireDAO.deleteQuestionnaire(user, questionnaire);
+    public void delete(Questionnaire questionnaire) {
+
     }
+
+
 }

@@ -1,9 +1,10 @@
 package com.architec;
 
-import com.architec.dao.mysql.MySQLCRUDUserDAO;
+import com.architec.configuration.ConfigApp;
 import com.architec.domain.Question;
 import com.architec.domain.Questionnaire;
 import com.architec.domain.User;
+import com.architec.service.CRUDService;
 import com.architec.service.impl.UserServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -14,11 +15,10 @@ import java.time.LocalDateTime;
 public class EntitySender {
     public static void main(String[] args) {
 
-//        MySQLCRUDUserDAO userDAO = new MySQLCRUDUserDAO();
+        ApplicationContext context = new
+                AnnotationConfigApplicationContext(ConfigApp.class);
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(UserServiceImpl.class);
-
-        UserServiceImpl userService = null;
+        CRUDService<User> userService = context.getBean(UserServiceImpl.class);
 
         User user1 = new User("Mark", "2rrrrrrr", true);
 
@@ -44,7 +44,7 @@ public class EntitySender {
 
         question1.addWay("some string to file1 mark");
 
-        //userService.save(user1);
+        userService.save(user1);
 
         //userDAO.deleteUser(user);
 
@@ -57,7 +57,6 @@ public class EntitySender {
                 .setDeadLine(LocalDateTime.of(2020, 01, 01, 3, 5));
 
         userDAO.updateUser(user);*/
-
 
     }
 }
